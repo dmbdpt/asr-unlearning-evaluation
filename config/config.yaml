@@ -1,0 +1,13 @@
+defaults:
+  - data_preparation: default
+  - clustering: default
+  - training: default
+  - unlearning: scrub
+  - evaluation: default
+  - artifacts: default
+  - _self_
+
+seed: 42
+skip_pre: false
+limit: null
+skip: 0

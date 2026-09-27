@@ -1,0 +1,3 @@
+experiment_name: "ml_unlearning_experiment_${training.model_tag}_${unlearning.unlearner}"
+tracking_uri: "sqlite:///mlflow.db?timeout=600"
+cache_dir: ".cache"

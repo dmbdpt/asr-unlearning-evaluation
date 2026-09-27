@@ -1,0 +1,35 @@
+# Values below are the tuned settings used for the published results.
+unlearner: "bad_teacher_smooth"
+mode: "per_subject"
+
+unlearner_config:
+  num_epochs: 10
+  batch_size_forget: 8
+  batch_size_retain: 8
+  val_check_interval: 50
+  gradient_clip_val: 1.6746012673886657
+  num_workers: 4
+  pin_memory: false
+  test_loss_mean: null
+
+  batches_to_check: 5
+
+  optimizer:
+    type: "adam"
+    lr: 0.000012172958098369984
+    weight_decay: 0.0
+
+  early_stopping:
+    active: false
+    monitor: train/forget_task
+    stopping_threshold: 100
+    patience: 2
+    min_delta: 10
+    mode: max
+
+  # BadTeacherSmooth-specific
+  temperature: 2.763845761772307
+  output_temperature: 1.1356818667316142
+  lambda_forget: 0.0976075770314003
+  kl_ctc_weight: 0.32533033076326434
+  kl_att_weight: 0.388677289689482

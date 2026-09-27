@@ -1,0 +1,25 @@
+# Self-contained data prep for ephemeral machines (e.g.
+cache_dir: "cached_datasets"
+
+dataset:
+  name: "librispeech"
+  root: "data"
+  train_subset: "train-clean-100"
+  test_subset: "test-clean"
+  valid_fraction: 0.0
+  cache_dir: "cached_datasets"
+  seed: 42
+  download: true
+
+features:
+  embedding_type: "concat"
+  acoustic_model: "espnet/voxcelebs12_ecapa_wavlm_joint"
+  textual_model: "bert-base-uncased"
+  cache_dir: "cached_datasets"
+  batch_size: 16
+  seed: 42
+  fallback_embedding_size: 768
+
+unlearning_set:
+  type: "speaker"
+  num_forget: 1

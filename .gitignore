@@ -1,0 +1,63 @@
+# ── Python ───────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+.venv/
+venv/
+
+# ── Notebooks ────────────────────────────────────────────────────────────────
+*.ipynb
+.ipynb_checkpoints/
+
+# ── Model checkpoints & weights ──────────────────────────────────────────────
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+*.bin
+*.h5
+
+# ── Experiment tracking ──────────────────────────────────────────────────────
+mlruns/
+mlflow.db
+outputs/
+results/
+*.log
+*logs/
+
+# ── Local caches ─────────────────────────────────────────────────────────────
+.cache/
+cached_datasets/
+
+# ── Generated data, figures and reports ──────────────────────────────────────
+# Scoped to output locations so that checked-in configs and small fixtures
+# (config/**/*.yaml, examples/**) are never silently ignored.
+data/
+hyperparam_results/
+scripts/**/plots/
+scripts/**/temp_*/
+scripts/**/extracted_feats/
+scripts/**/quant_feats/
+scripts/**/models/
+scripts/*.json
+scripts/**/*.csv
+*.optuna.db
+*.sqlite3
+
+# ── Figures ──────────────────────────────────────────────────────────────────
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.pdf
+
+# ── OS ───────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db

@@ -1,0 +1,36 @@
+# Values below are the tuned settings used for the published results.
+unlearner: "scrub"
+mode: "per_subject"
+
+unlearner_config:
+  batch_size_forget: 8
+  batch_size_retain: 8
+  val_check_interval: 50
+  gradient_clip_val: 0.1744510136109756
+  num_workers: 4
+  pin_memory: false
+  test_loss_mean: null
+
+  batches_to_check: 5
+
+  optimizer:
+    type: "adam"
+    lr: 0.00015346439219996878
+    weight_decay: 1.0e-06
+
+  early_stopping:
+    active: false
+    monitor: train/forget_task
+    stopping_threshold: 100
+    patience: 2
+    min_delta: 10
+    mode: max
+
+  # SCRUB-specific (flat — no nested scrub: block)
+  cycles: 10
+  extra_retain_epochs: 0
+  forget_steps_per_epoch: 12
+  retain_steps_per_epoch: 132
+  alpha_kl_retain: 0.32575563058501145
+  retain_loss_weight: 0.4921158008799499
+  beta_kl_forget: 1

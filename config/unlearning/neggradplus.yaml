@@ -1,0 +1,36 @@
+# Values below are the tuned settings used for the published results.
+unlearner: "neggradplus"
+mode: "per_subject"
+
+unlearner_config:
+  num_epochs: 10
+  batch_size_forget: 8
+  batch_size_retain: 8
+  val_check_interval: 50
+  gradient_clip_val: 1.7035621932512701
+  num_workers: 4
+  pin_memory: false
+  persistent_workers: true
+  test_loss_mean: null
+
+  optimizer:
+    type: "adam"
+    lr: 2.698695123876839e-05
+    weight_decay: 1.0e-06
+    betas: [0.9, 0.999]
+
+  early_stopping:
+    active: false
+    monitor: train/forget_task
+    stopping_threshold: 100
+    patience: 2
+    min_delta: 10
+    mode: max
+
+  # NegGradPlus-specific
+  lambda_forget: 0.5094404420237851
+  lambda_retain: 0.5466773366414382
+  threshold: 0.9814783719004898
+  cycle_length: 5
+  batches_to_check: 5
+  accumulate_grad_batches: 1

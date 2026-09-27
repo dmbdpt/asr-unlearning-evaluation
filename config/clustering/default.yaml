@@ -1,0 +1,20 @@
+type: "distance"
+enabled: true
+distance_calc: cosine
+sum_normalized: true
+
+distance_config:
+  threshold_type: quantity
+  threshold_value: 1
+  sum_normalized: true
+
+clustering_config:
+  method: kmeans
+  seed: 42
+
+  kmeans_config:
+    n_clusters: 10
+
+  hdbscan_config:
+    min_cluster_size: 10
+    min_samples: 5

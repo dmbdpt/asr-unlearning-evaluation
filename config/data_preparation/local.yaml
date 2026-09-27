@@ -1,0 +1,27 @@
+# Uses locally-cached CSV manifests instead of the shared ones.
+cache_dir: "cached_datasets"
+
+dataset:
+  name: "custom_csv"
+  root: ${oc.env:LIBRISPEECH_ROOT,${hydra:runtime.cwd}/data/LibriSpeech}
+  train_subset: "train-clean-100"
+  test_subset: "test-clean"
+  valid_fraction: 0.0
+  cache_dir: "cached_datasets"
+  seed: 42
+  download: true
+  train_csv: ${oc.env:LEAF_DATA_DIR,${hydra:runtime.cwd}/data}/ls_train_all_local.csv
+  test_csv: ${oc.env:LEAF_DATA_DIR,${hydra:runtime.cwd}/data}/ls_test_all_local.csv
+
+features:
+  embedding_type: "concat"
+  acoustic_model: "espnet/voxcelebs12_ecapa_wavlm_joint"
+  textual_model: "bert-base-uncased"
+  cache_dir: "cached_datasets"
+  batch_size: 16
+  seed: 42
+  fallback_embedding_size: 768
+
+unlearning_set:
+  type: "speaker"
+  num_forget: 1

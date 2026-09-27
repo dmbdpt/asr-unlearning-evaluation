@@ -1,0 +1,32 @@
+# Values below are the tuned settings used for the published results.
+unlearner: "cfk"
+mode: "per_subject"
+
+unlearner_config:
+  num_epochs: 10
+  batch_size_forget: 8
+  batch_size_retain: 8
+  val_check_interval: 50
+  gradient_clip_val: 1.588896280183132
+  num_workers: 4
+  pin_memory: false
+  test_loss_mean: null
+
+  optimizer:
+    type: "adam"
+    lr: 0.0008279997198701909
+    weight_decay: 1.0e-6
+    betas: [0.9, 0.999]
+
+  early_stopping:
+    active: false
+    monitor: val/forget_task_loss
+    stopping_threshold: 100
+    patience: 2
+    min_delta: 10
+    mode: max
+
+  # CF-k-specific
+  k: 12
+  threshold: 0.5
+  batches_to_check: 5

@@ -1,0 +1,33 @@
+model_tag: "asapp/e_branchformer_librispeech"
+finetune_model: false
+artifact_dir: "artifacts"
+losses: {}
+
+train_config:
+  batch_size_train: 16
+  max_epochs: 1
+  gradient_clip_val: 0.25
+  val_check_interval: 50
+  num_workers: 1
+  log_dir: "logs"
+  checkpoint_dir: "${training.train_config.log_dir}/checkpoints"
+  accelerator: "auto"
+  devices: "auto"
+  limit_train_batches: 1.0
+  limit_val_batches: 1.0
+  early_stopping:
+    active: false
+    monitor: "val/valid_set/loss"
+    patience: 3
+    min_delta: 0.1
+    mode: "min"
+
+optimizer_config:
+  lr: 0.001
+  momentum: 0.9
+
+model_config:
+  beam_size: 20
+  ctc_weight: 0.3
+  lm_weight: 0
+  #lm_weight: 0.6
